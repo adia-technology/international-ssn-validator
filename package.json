@@ -1,6 +1,6 @@
 {
 	"name": "international-ssn-validator",
-	"version": "0.1.0-alpha.1",
+	"version": "0.1.0",
 	"description": "A utility to validate social security number of different countries.",
 	"main": "dist/index.js",
 	"module": "dist/index.es2015.js",
@@ -15,6 +15,10 @@
 	],
 	"author": "Adia Technology",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/adia-technology/international-ssn-validator.git"
+	},
 	"dependencies": {
 		"ahv13-validator": "1.2.0",
 		"ssn-validator": "2.0.1"
