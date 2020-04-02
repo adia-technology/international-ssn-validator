@@ -1,5 +1,5 @@
 {
-	"name": "international-ssn-validator",
+	"name": "@adia-technology/international-ssn-validator",
 	"version": "0.1.0",
 	"description": "A utility to validate social security number of different countries.",
 	"main": "dist/index.js",
@@ -34,5 +34,9 @@
 		"rollup-plugin-typescript2": "^0.27.0",
 		"ts-jest": "^25.3.0",
 		"typescript": "^3.8.3"
-	}
+	},
+	"files": [
+		"dist/**/*",
+		"!dist/test/**/*"
+	]
 }
