@@ -1,10 +1,10 @@
 {
 	"name": "@adia-technology/international-ssn-validator",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "A utility to validate social security number of different countries.",
 	"main": "dist/index.js",
 	"module": "dist/index.es2015.js",
-	"types": "dist/src/index.d.ts",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"build": "rollup -c",
 		"test": "jest --watchAll",

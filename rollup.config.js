@@ -15,7 +15,7 @@ export default {
 	output: [{
 		file: pkg.main,
 		format: 'umd',
-		name: 'internaltionalSsnValidator',
+		name: 'internationalSsnValidator',
 		plugins: [
 			terser()
 		]
@@ -25,5 +25,6 @@ export default {
 		plugins: [
 			terser()
 		]
-	}]
+	}],
+	external: ['ahv13-validator', 'ssn-validator']
 };

@@ -3,17 +3,18 @@
 		"outDir": "./dist",
 		"declaration": true,
 		"declarationDir": "./dist",
-		//"declarationMap": true,
+		"declarationMap": true,
 		"module": "ES2015",
 		"moduleResolution": "node",
 		"target": "ES5",
+		"allowJs": true,
+		"esModuleInterop": true,
 		"lib": [
 			"ES2015",
 			"DOM"
 		]
 	},
 	"include": [
-		"src/**/*",
-		"test/**/*"
+		"src/**/*"
 	]
 }
