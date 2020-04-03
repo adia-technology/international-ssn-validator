@@ -1,4 +1,4 @@
-import * as AhvValidator from 'ahv13-validator';
+import AhvValidator from 'ahv13-validator';
 
 const ahvRegex = /^756\.\d{4}\.\d{4}\.\d{2}$/;
 

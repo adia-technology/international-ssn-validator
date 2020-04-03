@@ -27,7 +27,7 @@ This library exposes a single function, `validateSsn`, that accepts two paramete
 
 ## Dependencies
 
-This library bundles the following other libraries:
+This library uses the following other libraries:
 
 * [ahv13-validator](https://www.npmjs.com/package/ahv13-validator) ([ISC License](https://opensource.org/licenses/ISC))
 * [ssn-validator](https://www.npmjs.com/package/ssn-validator) ([MIT Lincense](https://opensource.org/licenses/MIT))
