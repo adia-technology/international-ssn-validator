@@ -1,4 +1,4 @@
-import { validateSsn } from '../src';
+import { validateSsn, CountryCode } from '../src';
 
 test('Given empty SSN, result should not be valid', () => {
 	let invalidSsn = '';
@@ -74,4 +74,13 @@ test('Given valid US SSN, when validateSsn called with "us" country code, result
 test('Given valid US SSN, when validateSsn called with "ch" country code, result should be invalid', () => {
 	let validUsSsn = "011-23-4567";
 	expect(validateSsn(validUsSsn, 'ch')).toBe(false);
+});
+
+test('Given unsupported countryCode, validateSsn should throw an error', () => {
+	expect(() => validateSsn('000', 'pl' as CountryCode)).toThrowError("'pl' country code is not supported.");
+});
+
+test('Given empty or null countryCode, validateSsn should throw an error', () => {
+	expect(() => validateSsn('000', '' as CountryCode)).toThrowError('countryCode was not provided');
+	expect(() => validateSsn('000', null)).toThrowError('countryCode was not provided');
 });
