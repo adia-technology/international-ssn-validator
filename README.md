@@ -13,9 +13,10 @@ npm install @adia-technology/international-ssn-validator --save
 ### Usage
 
 ```js
-import { validateSsn } from '@adia-technology/international-ssn-validator';
+import { validateSsn, ValidationResult } from '@adia-technology/international-ssn-validator';
 
-let isValid = validateSsn('756.1111.2222.00', 'ch');
+let validationResult = validateSsn('756.1111.2222.00', 'ch');
+let isValid = validationResult === ValidationResult.Valid;
 ```
 
 ## API
@@ -24,6 +25,8 @@ This library exposes a single function, `validateSsn`, that accepts two paramete
 
 * `ssn : string` - SSN to validate.
 * `countryCode : string` - country for which to check the SSN against. Currently supported are `us` and `ch`.
+
+It returns a `ValidationResult`, which essentially is a string enum being set to one of the values: `'VALID'`, `'INVALID_FORMAT'` or `'INVALID_CHECKSUM'`.
 
 ## Dependencies
 
