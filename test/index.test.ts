@@ -1,24 +1,25 @@
 import { validateSsn, CountryCode } from '../src';
+import { ValidationResult } from '../src/ValidationResult';
 
 test('Given empty SSN, result should not be valid', () => {
 	let invalidSsn = '';
 
-	expect(validateSsn(invalidSsn, 'ch')).toBe(false);
-	expect(validateSsn(invalidSsn, 'us')).toBe(false);
+	expect(validateSsn(invalidSsn, 'ch')).toBe(ValidationResult.InvalidFormat);
+	expect(validateSsn(invalidSsn, 'us')).toBe(ValidationResult.InvalidFormat);
 });
 
 test('Given null SSN, result should not be valid', () => {
 	let invalidSsn = null;
 
-	expect(validateSsn(invalidSsn, 'ch')).toBe(false);
-	expect(validateSsn(invalidSsn, 'us')).toBe(false);
+	expect(validateSsn(invalidSsn, 'ch')).toBe(ValidationResult.InvalidFormat);
+	expect(validateSsn(invalidSsn, 'us')).toBe(ValidationResult.InvalidFormat);
 });
 
 test('Given undefined SSN, result should not be valid', () => {
 	let invalidSsn = undefined;
 
-	expect(validateSsn(invalidSsn, 'ch')).toBe(false);
-	expect(validateSsn(invalidSsn, 'us')).toBe(false);
+	expect(validateSsn(invalidSsn, 'ch')).toBe(ValidationResult.InvalidFormat);
+	expect(validateSsn(invalidSsn, 'us')).toBe(ValidationResult.InvalidFormat);
 });
 
 test('Given valid Swiss SSN, when validateSsn called with "ch" country code, result should be valid', () => {
@@ -35,13 +36,13 @@ test('Given valid Swiss SSN, when validateSsn called with "ch" country code, res
 	];
 
 	for (let validSsn of validSwissSsns) {
-		expect(validateSsn(validSsn, 'ch')).toBe(true);
+		expect(validateSsn(validSsn, 'ch')).toBe(ValidationResult.Valid);
 	}
 });
 
 test('Given valid Swiss SSN, when validateSsn called with "us" country code, result should be invalid', () => {
 	let validSwissSsn = "756.5220.1643.81";
-	expect(validateSsn(validSwissSsn, 'us')).toBe(false);
+	expect(validateSsn(validSwissSsn, 'us')).toBe(ValidationResult.InvalidFormat);
 });
 
 test('Given invalid Swiss SSN, result should be invalid', () => {
@@ -52,12 +53,12 @@ test('Given invalid Swiss SSN, result should be invalid', () => {
 	let noChecksum = "756.0246.1057.4";
 	let tooLong = "756.8478.9370.660";
 
-	expect(validateSsn(wrongChecksum, 'ch')).toBe(false);
-	expect(validateSsn(wrongPrefix, 'ch')).toBe(false);
-	expect(validateSsn(noDots, 'ch')).toBe(false);
-	expect(validateSsn(wrongSeparators, 'ch')).toBe(false);
-	expect(validateSsn(noChecksum, 'ch')).toBe(false);
-	expect(validateSsn(tooLong, 'ch')).toBe(false);
+	expect(validateSsn(wrongChecksum, 'ch')).toBe(ValidationResult.InvalidChecksum);
+	expect(validateSsn(wrongPrefix, 'ch')).toBe(ValidationResult.InvalidFormat);
+	expect(validateSsn(noDots, 'ch')).toBe(ValidationResult.InvalidFormat);
+	expect(validateSsn(wrongSeparators, 'ch')).toBe(ValidationResult.InvalidFormat);
+	expect(validateSsn(noChecksum, 'ch')).toBe(ValidationResult.InvalidFormat);
+	expect(validateSsn(tooLong, 'ch')).toBe(ValidationResult.InvalidFormat);
 });
 
 test('Given valid US SSN, when validateSsn called with "us" country code, result should be valid', () => {
@@ -67,13 +68,13 @@ test('Given valid US SSN, when validateSsn called with "us" country code, result
 	];
 
 	for (let validSsn of validUsSsns) {
-		expect(validateSsn(validSsn, 'us')).toBe(true);
+		expect(validateSsn(validSsn, 'us')).toBe(ValidationResult.Valid);
 	}
 });
 
 test('Given valid US SSN, when validateSsn called with "ch" country code, result should be invalid', () => {
 	let validUsSsn = "011-23-4567";
-	expect(validateSsn(validUsSsn, 'ch')).toBe(false);
+	expect(validateSsn(validUsSsn, 'ch')).toBe(ValidationResult.InvalidFormat);
 });
 
 test('Given unsupported countryCode, validateSsn should throw an error', () => {

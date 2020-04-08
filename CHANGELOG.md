@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+* **BREAKING** Changed `validateSsn`'s return type from boolean to `ValidationResult`. This allows to return the reason for which the SSN is invalid.
+
 ## 0.2.0
 
 * Made `CountryCode` type public.
