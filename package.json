@@ -20,7 +20,7 @@
 		"url": "https://github.com/adia-technology/international-ssn-validator.git"
 	},
 	"dependencies": {
-		"ahv13-validator": "1.2.0",
+		"ahv13-validator": "1.2.1",
 		"ssn-validator": "2.0.1"
 	},
 	"devDependencies": {
